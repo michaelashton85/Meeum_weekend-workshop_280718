@@ -42,8 +42,15 @@
     --font-size-section-title: 30px; 
     --font-size-sub-title: 24px;
     --font-size-heading-small: 16px;
+}
 
-
+/*media query to change the font sizes when the site is viewed on a device which has a bigger that 800px wide screen size*/
+@media screen and (min-width: 800px){
+    :root {
+        --font-size-site-title: 54px;
+        --font-size-page-title: 80px;
+        --font-size-section-title: 48px; 
+    }
 }
 
 /* ------------------------GLOBAL DEFAULTS------------------------*/
@@ -127,7 +134,7 @@ header {
 }
 
 header .layout-wide{
-    margin-inline-end: 0;
+    margin-bottom: 0;
     overflow: hidden;
 }
 
@@ -147,6 +154,84 @@ header .layout-wide{
 
 /* ------------------------NAVIGATION------------------------*/
 
+.navigation {
+    background-color: var(--alternative-bg-color);
+    position: sticky;/*gives the nav the position of sticky so when scrolling down the page the navigation sticks to the top*/
+    top: 0; /*tells the website when the top of the screen reaches 0 the navigation sticks to the stop of the screen*/
+    z-index: 10; /*makes sure nav sits on top of all elements on page*/
+}
+
+.nav-prompt {
+    width: 100%;
+    background-color: var(--alternative-bg-color);
+    color: var(--alternative-text-color);
+    padding: var(--padder);
+    border: none;
+    border-top: 1px solid VAR(--border-color);
+
+}
+
+.nav-inner {
+    margin-bottom: 0;
+}
+
+.nav-inner ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-inner li{
+    text-align: center;
+}
+
+.nav-inner a{
+    display: block;
+    color: var(--alternative-text-color);
+    padding: var(--spacer) 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-inner a:hover{
+    color: var(--error-color);
+}
+
+@media screen and (min-width: 800px){
+    .nav-prompt{
+        display: none
+    }
+
+    .navigation{
+        padding: var(--padder) 0;
+    }
+
+    .nav-inner ul{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-inner a{
+        border-bottom: 2px solid transparent;
+    }
+
+}
+
+@media screen and (max-width: 800px){
+    .nav-inner{
+        transition: var(--transition-time);
+        overflow: hidden;
+    }
+    
+    .nav-inner[aria-expanded="false"]{
+        max-height: 0;
+    }
+
+    .nav-inner[aria-expanded="true"]{
+        max-height: 100vh;
+    }
+}
 
 /* ------------------------FOOTER------------------------*/
 
