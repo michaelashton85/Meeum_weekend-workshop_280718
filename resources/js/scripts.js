@@ -15,3 +15,15 @@ $('.nav-prompt').click(function(){
     }
 
 });
+
+// Image Gallery
+
+function imagegallery(){
+    if(!$('.image-gallery').length){
+        return;
+    }
+
+    $('.image-gallery a').simpleLightbox();
+}
+
+imagegallery();
